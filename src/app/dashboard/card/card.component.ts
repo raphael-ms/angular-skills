@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-card',
@@ -8,17 +9,35 @@ import { Component, OnInit, Input } from '@angular/core';
 export class CardComponent implements OnInit {
 
   @Input() card;
-  constructor() { }
+  constructor(private httpClient: HttpClient) { }
+  color = "link";
+  colorBadge = "accent";
 
   ngOnInit() {
   }
 
-  onLike(card: any){
-    // TODO: incrementar o like, salvar via rest
+  onLike(card: any){  
+     this.httpClient.post('/api/skills', card).subscribe( ret => {
+      console.log(ret);
+    }, err => {
+      console.log(err);
+    });
+    card.likes += 1;
+    this.checkColor(card);
+    console.log(this.color);
   }
 
-  onShare(card: any){
-    // TODO: abrir o link do seu linkedin
+  checkColor(card: any){
+    if(card.likes > 4)
+      this.color = "primary";
+    if(card.likes > 9){
+      this.color = "warn"
+      this.colorBadge = "primary"
+    }
+  }
+
+  onShare(){
+    window.location.href='https://www.linkedin.com/in/raphael-marques-977411119/';
   }
 
 }

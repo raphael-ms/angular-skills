@@ -1,3 +1,35 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway:400,200');
+
 .example-card {
-    max-width: 400px;
-  }
+  max-width: 400px;
+  background-color: #F7F7F7;
+  margin-top: 15px;
+  height: 470px;
+  transition: all 250ms ease-out;
+  z-index: 1;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.3);
+  font-family: 'Raleway', sans-serif;
+}
+
+img{
+  max-width: 95%;
+  max-height: 95%;
+  margin-left: 1px;
+}
+
+
+.example-card:hover {
+box-shadow: 5px 0px 40px rgba(0,0,0, .2);
+}
+
+#share-button{
+  margin-left: 15px;
+}
+.buttons{
+  position: absolute;
+  bottom:20px;
+  left: 25px;
+}
+
