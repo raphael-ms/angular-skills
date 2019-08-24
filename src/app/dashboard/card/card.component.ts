@@ -37,7 +37,7 @@ export class CardComponent implements OnInit {
   }
 
   onShare(){
-    window.location.href='https://www.linkedin.com/in/raphael-marques-977411119/';
+    window.open('https://www.linkedin.com/in/raphael-marques-977411119/');
   }
 
 }
